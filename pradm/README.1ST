@@ -1,0 +1,7 @@
+
+
+deny_info http://MYSERVER/cgi-bin/error.cgi?code=%s cachedmz
+
+/etc/hosts
+127.0.0.1       catserver
+127.0.0.1       memcachedserver

@@ -1,0 +1,265 @@
+[permissions]
+# you can use reserved words 'undeflocal' and 'undef' for unknown categories
+#
+# undeflocal - site not found in categories defined in config file
+# undef - site not found in categories defined in category server
+#
+# by default all categories is allowed. This means that if category not defined
+# for user, then pass connection to site.
+#
+# permblock - Permanently blocked sites
+permblock=virusinfected spyware vacation proxy phishing hacking antispyware dialers malware
+
+# block - Sites which can be unblocked for user
+block=sect porn mixed_adult sexuality naturism ads artnudes adult
+
+# allow - Sites allowed by default
+allow=local
+
+# timemap - Global timemap settings for all users
+timemap=full
+
+# order - Default order type for all users
+# 0 - allow, deny
+# 1 - deny, allow
+order=0
+
+#
+# Exclude mask. Typically regexp with values which must be passed trough external acl without any checks
+#  
+exclude=^10\.6\.|^192\.168\.|myserver
+
+# TIMEMAP Sections
+# You can define many worktime maps for many users
+# Format is very simple
+# Day BeginTime-EndTime
+# for ex. if you use update services on host at fixed time,
+# you can define multiple entries for each day of week
+#
+# Mon 01:00-02:00
+# Mon 05:00-06:00
+# Tue 02:00-08:00
+# Wed 08:00-12:00
+#
+
+[timemap_all]
+Mon 08:00-20:00
+Mon 21:00-22:00
+Tue 08:00-20:00
+Wed 08:00-20:00
+Thu 08:00-20:00
+Fri 08:00-20:00
+Sat 00:00-00:00
+Sun 00:00-00:00
+
+[timemap_test]
+Mon 00:00-00:00
+Tue 00:00-00:00
+Wed 00:00-00:00
+Thu 00:00-00:00
+Fri 00:00-00:00
+Sat 00:00-00:00
+Sun 00:00-00:00
+
+[timemap_full]
+Mon 00:00-24:00
+Tue 00:00-24:00
+Wed 00:00-24:00
+Thu 00:00-24:00
+Fri 00:00-24:00
+Sat 00:00-24:00
+Sun 00:00-24:00
+
+[timemap_nine_nineteen]
+Mon 09:00-19:00
+Tue 09:00-19:00
+Wed 09:00-19:00
+Thu 09:00-19:00
+Fri 09:00-19:00
+Sat 00:00-00:00
+Sun 00:00-00:00
+
+[catservers]
+127.0.0.1:6510
+
+[catserver_categories]
+# bigblacklist.com categories list
+# see CATEGORIES from bigblacklist.com for detailed info
+abortion=Abortion
+ads=Ads and Banners
+adult=Adult Sites
+aggressive=Aggressive Content
+alcohol=Alcohol
+antispyware=Antispyware Sites
+artnudes=Artistic nudity
+astrology=Astrology
+audio-video=Audio and Video downloads
+banking=Banking websites
+beerliquorinfo=Beer and Liquors info
+beerliquorsale=Beer and Liquors sale
+blog=Journal/Diary websites
+books=Books
+celebrity=Celebrity
+cellphones=Stuff for mobile/cell phones
+chat=Chat
+child=Child
+childcare=ChildCare
+cleaning=Home Cleaning
+clothing=Clothes
+contraception=Contraception
+culinary=Cooking
+dating=Dating
+desktopsillies=Content for User Desktops
+dialers=Sites with dialers
+drugs=Drugs
+ecommerce=Online shopping
+entertainment=Sites that promote movies, books, magazine, humor
+filehosting=File Hosting
+filesharing=File Sharing
+financial=Financial
+frencheducation=French education
+gambling=Gambling sites
+games=Game related sites
+gardening=Gardening sites
+government=Military and schools
+guns=Guns
+hacking=Hacking/cracking information
+homerepair=Home repair
+humor=Humor
+hunting=Hunting
+hygiene=Hygiene
+instantmessaging=Instant Messaging
+jewelry=Jewelry
+jobsearch=Job Search
+kidstimewasting=Sites for kids
+magazines=Shops/Magazines
+mail=Webmail/Email
+malware=Malware
+manga=Manga
+marketingware=Sites about marketing products
+medical=Medical
+mixed_adult=Adult
+mobile-phone=Mobile Phones
+naturism=Nude nature
+news=News
+onlineauctions=Online auctions
+onlinegames=Online gaming
+onlinepayment=Online payment
+personalfinance=Personal finance
+pets=Pets
+phishing=Phishing
+porn=Pornography
+press=Press
+proxy=Proxy
+radio=Radio and Television
+realaffected=RealAffected
+religion=Religion
+remote-control=Remote Control
+ringtones=Ringtones
+searchengines=Search Engines
+sect=Sects
+sexuality=Adult Materials
+shopping=Shopping
+socialnetworking=Social networking
+sportnews=Sport news
+sports=Sport
+spyware=Spyware
+tobacco=Tobacco
+updatesites=Virus Update Sites
+vacation=Vacation
+verisign=Verisign
+violence=Violence
+virusinfected=Virus Infected Sites
+warez=Illegal Pirate Software
+weather=Weather News
+weapons=Weapon
+webmail=Webmail
+whitelist=Whitelist
+
+[category_local]
+# you can use custom description for each category
+# just add desc=<custom name of category>
+# to category section
+desc=My Local Domains
+domain.local
+aborche.com
+
+[category_gmail]
+mail.google.com
+gmail.com
+
+[category_odnoklassniki_ban_collection]
+desc=Odnoklassniki.ru helper sites
+odnoklassniki.ru
+gdline.ru
+xssnews.ru
+meddiscount.ru
+allinstvip.ru
+ltd24.ru
+newssell.ru
+itcnr.ru
+novoteck.ru
+allinstvip.ru
+newsshops.ru
+doc-safe.ru
+worldmini.ru
+
+[category_vkontakte_ban_collection]
+vkontakte.ru
+vk.com
+vkontakte.com
+topres.ru
+transplive.ru
+brandmsk.ru
+youprom.ru
+bankltd.ru
+simnews.ru
+worldbuh.ru
+finames.ru
+importz.ru
+
+[category_youtube]
+www.youtube.com
+youtube.com
+
+[category_yahoo]
+yahoo.com
+www.yahoo.com
+
+[category_test]
+test.google.com
+mail.google.com
+test.yahoo.com
+
+[category_rbc]
+rbc.ru
+
+[category_mailru]
+rosnew.ru
+mail.ru
+
+[category_fishki]
+fishki.net
+
+[category_ifun]
+ifun.ru
+
+#
+# For blocking/allowing all content for user, you can use a keyword 'ALL'
+# 'ALL' contains all categories predefined in config file.
+# also if your category server can give the names categories are not defined in config file,
+# you can use these names as well as defined in the configuration file
+# Notice! If you use 'ALL' keyword, it must be first in categories list
+# - block access to category
+# + allow access to category
+# if sign is not defined, by default access to category is blocked
+#
+# permission setted to user have a higher priority than the global
+
+[hosts]
+1.1.1.1=-ALL +mail -gmail +local
+1.1.1.1_timemap=full
+1.1.1.1_order=1
+1.2.3.4=+ALL -ifun -fishki
+1.2.3.4_timemap=full
+

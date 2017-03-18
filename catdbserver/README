@@ -1,0 +1,80 @@
+How to category server works ?
+
+	Category server operated with data converted by categoryloader.pl
+	Servel listen at port udp/6510 and wait for domain name.
+	After analyze domain name server return some categories for requested domain
+
+How to use category loader ?
+
+	-h : Shows help page
+
+	-c : Clear current database before loading data
+	     If you already have a database this option delete current database
+	     and create a new one database
+
+	-v : Verbose procedures
+	     This option add output about current operations with database.
+
+	-V : Verbose converting process
+	     This option show detailde debug info for each line of input file or
+	     directory
+
+	-f <filename>  : use file with domains info in format "domain:category"
+	     You can use list of domains putted to file. You can use format
+	     "domain:category" for define categories per line for each domain.
+	     One domain can be defined multiple times with many categories, one
+	     category per line. If you have a file contains domain names, then
+	     use -r option for define category.
+
+	-d <directory> : use directory with category directories.
+	     You can use bulk load into category server. Just create a directory
+	     tree, where directory is category name and file named "domains"
+	     contain list of domains for this category
+
+	-r <name> : use category name instead defined in <filename>
+	     If you need override current defined category in <filename>
+	     or <directory>, you can use own category <name> for each record in
+	     listfiles.
+	
+	-w <directory> : work directory for database files
+	     You can set work directory for store database files.
+
+	-s : get some statistics for current database
+	     This options show current records and types count in database.
+
+	-t : show types list (Must be used with -s)
+	     With -s option you can see a list of categories which used in your
+	     database.
+
+	-k : show md5 domain list (Must be used with -s)
+	     With -s option you can see md5hashes for each domain imported to
+	     category server and types assigned for this domain
+
+	-p : use pid file path instead default '/var/tmp/catserver.pid'
+	
+	-R : send HANGUP signal to PID defined in pidfile(-p) option.
+	     Use this option after adding or delete any data to/from database.
+
+Example:
+	./categoryloader.pl -s -V -t -f categorytest.txt
+
+
+How to run category server ?
+
+	When category server(catserver.pl) starts, it uses files created by
+	categoryloader.pl. You can redefine work directory with -w option,
+	where category server can find work files.
+	Use ./catserver.pl -h for get some help
+
+How to test category server ?
+
+	Run ./categoryloader.pl -s -V -t -f categorytest.txt
+	In one terminal run ./catserver.pl -d(for daemonize) or ./catserver.pl -v
+	(for debugging). At second terminal type:
+	echo 'siski.cn' | ./testfilter.pl
+
+	You should see next info:
+	Server localhost domain siski.cn answer adult;malware
+
+	If you see this line, then category server works normally.
+
